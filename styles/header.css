@@ -1,0 +1,136 @@
+body{
+    padding-top: 65px;
+    padding-left: 85px;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    height: 53px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    border-bottom: 1px solid rgb(218, 218, 218);
+    z-index: 10;
+}
+/*Side bar*/
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color: white;
+    top: 53px;
+    left: 0;
+    bottom: 0;
+    width: 72px;
+}
+
+.home,.explore,.subscriptions,.originals,.youtube-music,.library{
+    width: 24px;
+}
+.sidebar-icons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 74px;
+    width: 72px;
+}
+.sidebar-icons:hover{
+    background-color: rgb(240, 240, 240);
+}
+.sidebar-text{
+    font-size: 10px;
+    text-align: center;
+}
+
+.left-section{
+    display: flex;
+    gap: 24px;
+    margin-left: 24px;
+}
+.middle-section{
+    display: flex;
+    flex:1;
+    margin-left: 70px;
+    margin-right: 35px; 
+    max-width: 600px;
+}
+.right-section{
+    display: flex;
+    justify-content: flex-end;
+    gap: 26px;
+    margin-right: 24px;
+}
+.search-bar{
+    height: 36px;
+    flex: 1;
+    padding-left: 10px;
+    width: 0;
+}
+
+.search-button,
+.search-bar{
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 2px;
+}
+.search-bar{
+    box-shadow: inset 0 0 3px rgba(128, 128, 128,.5);
+    font-size: 16px;
+}
+
+.search-button{
+    padding: 0px 18px;
+    margin-left: -1px;
+}
+.voice-search{
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+    background-color: white;
+    border-radius: 20px;
+    border-style: none;
+}
+
+.search-bar::placeholder{
+    font-family: Roboto,Arial;
+    font-size: 16px;
+}
+
+.notification-icon-container{
+    padding-top: 5px;
+    position: relative;
+}
+.number{
+    color: white;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: -3px;
+    background-color: red;
+    padding: 3px 6px;
+    border-radius: 50%;
+}
+
+/*Images styles*/
+.hamburger-menu,.upload-icon,.youtube-apps-icon,.notification-icon,
+.search-icon,.voice-search-icon{
+    width: 24px;
+}
+.youtube-logo{
+    width: 90px;
+}
+.channel-icon{
+    width: 30px;
+    border-radius: 15px;
+}
