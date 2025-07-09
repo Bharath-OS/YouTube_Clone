@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .appearance-sidebar {
+            width: 300px;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            border: 1px solid #333;
+        }
+
+        .icon-back {
+            width: 20px;
+            height: 20px;
+            /* background-color: #555; */
+            /* Placeholder for back icon */
+            border-radius: 3px;
+        }
+
+        .checkmark {
+            width: 16px;
+            height: 16px;
+            background-color: #3ea6ff;
+            /* You can change it if using an icon later */
+            border-radius: 50%;
+        }
+/* 
+        .active-option {
+            background-color: #272727 !important;
+        } */
+
+        /* Default layout */
+        .appearance-sidebar {
+            width: 300px;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark mode styles */
+        .darkmode {
+            background-color: #212121;
+            color: white;
+        }
+
+        .darkmode .list-group-item {
+            background-color: #212121;
+            color: white;
+        }
+
+        .darkmode .list-group-item.active-option {
+            background-color: #383838;
+            color: white;
+        }
+
+        /* Light mode styles */
+        .lightmode {
+            background-color: white;
+            color: black;
+        }
+
+        .lightmode .list-group-item {
+            background-color: white;
+            color: black;
+        }
+
+        .lightmode .list-group-item.active-option {
+            background-color: #e9ecef;
+            color: black;
+        }
+        .devicetheme{
+            background-color: #000000;
+            color: white;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="appearance-sidebar darkmode p-3 rounded-3 shadow">
+        <!-- Back Arrow and Title -->
+        <div class="d-flex align-items-center mb-3">
+            <div class="icon-back me-2">
+                <!-- Back arrow icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                </svg>
+            </div>
+            <h5 class="mb-0">Appearance</h5>
+        </div>
+
+        <small class="text-secondary d-block mb-3">Setting applies to this browser only</small>
+
+        <!-- Options -->
+        <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action d-flex align-items-center active-option"
+                id="device-theme-button">
+                <div class="checkmark-icon me-2 invisible" id="device-theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-check2" viewBox="0 0 16 16">
+                        <path
+                            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                    </svg>
+                </div>
+                Use device theme
+            </a>
+
+            <a href="#" class="list-group-item list-group-item-action d-flex align-items-center" id="dark-theme-button">
+                <div class="checkmark-icon me-2 invisible" id="dark-theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-check2" viewBox="0 0 16 16">
+                        <path
+                            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                    </svg>
+                </div>
+                Dark theme
+            </a>
+
+            <a href="#" class="list-group-item list-group-item-action d-flex align-items-center"
+                id="light-theme-button">
+                <div class="checkmark-icon me-2 invisible" id="light-theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-check2" viewBox="0 0 16 16">
+                        <path
+                            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                    </svg>
+                </div>
+                Light theme
+            </a>
+        </div>
+    </div>
+
+    <h1 id="text">
+        This is a normal device theme
+    </h1>
+
+    <script>
+        const image = document.getElementById('channel-button');
+        let mode;
+
+
+        const lightThemeMark = document.getElementById('light-theme');
+        const lightThemeButton = document.getElementById('light-theme-button');
+
+        const darkThemeMark = document.getElementById('dark-theme');
+        const darkThemeButton = document.getElementById('dark-theme-button');
+
+        const deviceThemeMark = document.getElementById('device-theme');
+        const deviceThemeButton = document.getElementById('device-theme-button');
+
+        lightThemeButton.addEventListener('click', () => {
+            lightThemeMark.classList.remove('invisible');
+            darkThemeMark.classList.add('invisible');
+            deviceThemeMark.classList.add('invisible');
+            mode = "lightMode";
+            lightMode();
+
+        });
+
+        deviceThemeButton.addEventListener('click', () => {
+            deviceThemeMark.classList.remove('invisible');
+            lightThemeMark.classList.add('invisible');
+            darkThemeMark.classList.add('invisible');
+            mode = "deviceMode";
+            deviceMode();
+            
+        });
+
+        darkThemeButton.addEventListener('click', () => {
+            darkThemeMark.classList.remove('invisible');
+            lightThemeMark.classList.add('invisible');
+            deviceThemeMark.classList.add('invisible');
+            mode = "darkMode";
+            darkMode();
+            
+        })
+
+        function darkMode(){
+            document.body.classList.add('darkmode');
+            document.body.classList.remove('lightmode');
+            document.body.classList.remove('devicetheme');
+        }
+
+        function lightMode(){
+            document.body.classList.add('lightmode');
+            document.body.classList.remove('darkmode');
+            document.body.classList.remove('devicetheme');
+        }
+
+        function deviceMode(){
+            document.body.classList.add('devicetheme');
+            document.body.classList.remove('lightmode');
+            document.body.classList.remove('darkmode');
+        }   
+
+    </script>
+
+</body>
+
+</html>
